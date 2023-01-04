@@ -105,6 +105,7 @@ namespace Eshop_Api.Controllers
 
         private bool CheckIfAdmin()
         {
+           
             var isAdmin = User.FindFirst("isAdmin")?.Value;
             return Convert.ToBoolean(isAdmin);
         }

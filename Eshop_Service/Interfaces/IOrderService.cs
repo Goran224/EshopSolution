@@ -5,7 +5,7 @@ namespace Eshop_Service.Interfaces
 {
     public interface IOrderService
     {
-        Task<int> CreateOrder(OrderDto order);
+        Task<int> CreateOrder(OrderDto order, string userEmail);
         Task<Order> GetOrder(int id);
     }
 }

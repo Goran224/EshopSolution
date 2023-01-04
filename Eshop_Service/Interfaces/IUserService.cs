@@ -8,5 +8,6 @@ namespace Eshop_Service.Interfaces
     {
         Task<int> Create(UserDto userDtoModel);
         Task<JwtResponseModel> Login(LoginModel userDtoModel);
+        Task<User> GetUserByEmail(string email);
     }
 }

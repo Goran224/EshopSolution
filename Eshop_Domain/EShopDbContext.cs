@@ -15,11 +15,16 @@ namespace Eshop_Domain
         public virtual DbSet<OrderItem> OrderItem { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-           
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+            
+            });
 
             modelBuilder.Entity<Order>(entity =>
             {
                 entity.HasKey(e => e.Id);
+                entity.HasOne(x => x.User).WithMany(x => x.Orders);
             });
 
             modelBuilder.Entity<OrderItem>(entity =>

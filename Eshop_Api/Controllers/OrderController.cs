@@ -25,7 +25,8 @@ namespace Eshop_Api.Controllers
             {
                 try
                 {
-                  await _orderService.CreateOrder(order);   
+                 var userEmail = User.Identity.Name;
+                 await _orderService.CreateOrder(order, userEmail);   
                   return Ok();  
                 }
                 catch (Exception ex)

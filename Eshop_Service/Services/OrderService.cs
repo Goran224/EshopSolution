@@ -13,9 +13,9 @@ namespace Eshop_Service.Services
         {
             _orderRepo = orderRepository;
         }
-        public async Task<int> CreateOrder(OrderDto order)
+        public async Task<int> CreateOrder(OrderDto order, string email)
         {
-            var result = await _orderRepo.CreateOrder(order);
+            var result = await _orderRepo.CreateOrder(order, email);
             return result.Id;
         }
 

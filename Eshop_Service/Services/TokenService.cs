@@ -32,7 +32,6 @@ namespace Eshop_Service.Services
                 new Claim(JwtRegisteredClaimNames.UniqueName, model.Email.ToLower()),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim("isAdmin", model.IsAdmin.ToString()),
-
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));

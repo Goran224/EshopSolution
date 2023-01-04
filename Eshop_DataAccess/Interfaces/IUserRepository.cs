@@ -7,6 +7,5 @@ namespace Eshop_DataAccess.Interfaces
         Task<User> CreateUser(User user);
         Task<User> GetUser(string email, string password);
         Task<User> GetUserByEmail(string email);
-
     }
 }

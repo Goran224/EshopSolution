@@ -36,6 +36,11 @@ namespace Eshop_Service.Services
             return user.Id;
         }
 
+        public async Task<User> GetUserByEmail(string email)
+        {
+           return await _userRepository.GetUserByEmail(email);
+        }
+
         public async Task<JwtResponseModel> Login(LoginModel model)
         {
             User user = await _userRepository.GetUser(model.Email, Methods.Sha512Hash(model.Password));

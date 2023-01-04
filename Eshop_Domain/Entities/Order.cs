@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Eshop_Domain.Entities
 {
@@ -11,6 +12,7 @@ namespace Eshop_Domain.Entities
         public decimal Total { get; set; }
         public IList<OrderItem> OrderItems { get; set; }
         public OrderStatus Status { get; set; }
+        public User User { get; set; }
 
     }
 }

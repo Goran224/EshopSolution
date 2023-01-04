@@ -20,6 +20,8 @@ namespace Eshop_Domain.Entities
         [Required]
         public string Password { get; set; }
 
+        public IList<Order> Orders { get; set; }
+
         public bool IsAdmin { get; set; }
     }
 }

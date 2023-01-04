@@ -10,15 +10,18 @@ namespace Eshop_DataAccess.Repositories
     public class OrderRepository : IOrderRepository
     {
         private readonly EShopDbContext _dbContext;
+        private readonly IUserRepository _userRepository;
 
 
-        public OrderRepository(EShopDbContext dbContext)
+        public OrderRepository(EShopDbContext dbContext, IUserRepository userRepository)
         {
             _dbContext = dbContext;
+            _userRepository = userRepository;
         }
-        public async Task<Order> CreateOrder(OrderDto orderDto)
+        public async Task<Order> CreateOrder(OrderDto orderDto, string userEmail)
         {
             var order = new Order();
+            order.User = await _userRepository.GetUserByEmail(userEmail);
             decimal total = 0;
             order.Address = orderDto.Address;
             order.Status = orderDto.Status; 
@@ -41,7 +44,7 @@ namespace Eshop_DataAccess.Repositories
 
         public async Task<Order> GetOrder(int Id)
         {
-            var order = await _dbContext.Order.Include(x => x.OrderItems).ThenInclude(x => x.Product).FirstOrDefaultAsync(x => x.Id == Id);
+            var order = await _dbContext.Order.Include(x =>x.User).Include(x => x.OrderItems).ThenInclude(x => x.Product).FirstOrDefaultAsync(x => x.Id == Id);
             return order;
         }
 
