@@ -10,20 +10,15 @@ namespace Eshop_Domain.Entities
 {
     public enum OrderStatus
     {
-        [EnumMember(Value = "Pending")]
-        Pending,
 
-        [EnumMember(Value = "Payment Recieved")]
+        [EnumMember(Value = "New")]
+         New,
 
-        PaymentRecieved,
-
-        [EnumMember(Value = "Payment Failed")]
-
-        PaymentFailed,
+        [EnumMember(Value = "Processed")]
+        Processed,
 
         [EnumMember(Value = "Delivered")]
-
-        Delivered
+        Delivered,
 
     }
 
